@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define ARR_SIZE 1001
+#define ARR_SIZE 1000
 
 int findHalfIndex(int A[], int n, long sum)
 {

@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1616246411 source:e:\documents\agh\semestr_2\pi\repo\2\narc\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
