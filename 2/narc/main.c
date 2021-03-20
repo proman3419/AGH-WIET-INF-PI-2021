@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define M 8
-
 int isNarcistic(int n, int b, int m)
 {
     int tmp = n;
@@ -21,7 +19,7 @@ int isNarcistic(int n, int b, int m)
 void printInBase(int n, int b, int m)
 {
     int curr, i;
-    char res[M];
+    char res[m];
 
     for (i = 0; i < m; i++)
     {
