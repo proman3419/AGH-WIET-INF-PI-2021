@@ -21,16 +21,10 @@ int partition(int A[], int l, int r)
 {
     int i = l - 1;
     for (int j = l; j < r; j++)
-    {
         if (A[j] < A[r])
-        {
-            i++;
-            swap(A, i, j);
-        }
-    }
+            swap(A, ++i, j);
 
-    i++;
-    swap(A, i, r);
+    swap(A, ++i, r);
 
     return i;
 }

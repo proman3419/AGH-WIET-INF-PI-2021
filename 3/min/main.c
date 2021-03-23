@@ -99,7 +99,7 @@ int main()
     }
 
     quickSort(A, 0, N-1);
-    printf("%d\n", findMinSum(A, N, K, sum));
+    printf("%d", findMinSum(A, N, K, sum));
 
     return 0;
 }
