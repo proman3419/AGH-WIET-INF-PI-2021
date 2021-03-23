@@ -59,7 +59,7 @@ int main()
     int N, K;
     scanf("%d %d", &N, &K);
 
-    int* A = (int*)calloc(N, sizeof(int));
+    int *A = (int*)calloc(N, sizeof(int));
     for (int i = 0; i < N; i++)
         scanf("%d", &A[i]);
 
