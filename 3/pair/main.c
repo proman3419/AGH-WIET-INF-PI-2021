@@ -66,5 +66,7 @@ int main()
     qsort(A, N, sizeof(int), cmpFunc);
     printf("%d", findPairs(A, N, K));
 
+    free(A);
+
     return 0;
 }
