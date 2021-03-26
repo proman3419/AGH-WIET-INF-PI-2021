@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int findPairs(int A[], int N, int K)
+int findPairs(int A[], unsigned int N, int K)
 {
     // one element
     if (N == 1)
@@ -56,7 +56,8 @@ int cmpFunc (const void *a, const void *b)
 
 int main()
 {
-    int N, K;
+    unsigned int N;
+    int K;
     scanf("%d %d", &N, &K);
 
     int *A = (int*)calloc(N, sizeof(int));
