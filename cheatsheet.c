@@ -1,5 +1,15 @@
-// print array ===========================================================
-void printArray(int A[], int N)
+// calloc 1D array =======================================================
+int *A = (int *)calloc(N, sizeof(int));
+//========================================================================
+
+// calloc 2D array =======================================================
+int **A = (int **)malloc(r*sizeof(int *));
+for (int i = 0; i < r; i++)
+    A[i] = (int *)calloc(c, c*sizeof(int));
+//========================================================================
+
+// print array 1D ========================================================
+void printArray(int *A, int N)
 {
     for (int i = 0; i < N; i++)
         printf("%d ", A[i]);
@@ -7,8 +17,24 @@ void printArray(int A[], int N)
 }
 //========================================================================
 
+// print array 2D ========================================================
+void printArray2D(int **A, int r, int c)
+{
+    int i, j;
+    for (i = 0; i < r; i++)
+    {
+        for (j = 0; j < c; j++)
+        {
+            printf("%d ", A[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+}
+//========================================================================
+
 // swap ==================================================================
-void swap(int A[], int i, int j)
+void swap(int *A, int i, int j)
 {
     int tmp = A[i];
     A[i] = A[j];
@@ -17,7 +43,7 @@ void swap(int A[], int i, int j)
 //========================================================================
 
 // quick sort ============================================================
-int partition(int A[], int l, int r)
+int partition(int *A, int l, int r)
 {
     int i = l - 1;
     for (int j = l; j < r; j++)
@@ -29,7 +55,7 @@ int partition(int A[], int l, int r)
     return i;
 }
 
-void quickSort(int A[], int l, int r)
+void quickSort(int *A, int l, int r)
 {
     int pi;
     while (l < r)
