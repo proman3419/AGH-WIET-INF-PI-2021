@@ -1,11 +1,11 @@
 // calloc 1D array =======================================================
-int *A = (int *)calloc(N, sizeof(int));
+int *A = (int *)calloc((unsigned int)N, sizeof(int));
 //========================================================================
 
 // calloc 2D array =======================================================
-int **A = (int **)malloc(r*sizeof(int *));
+int **A = (int **)malloc((unsigned int)r*sizeof(int *));
 for (int i = 0; i < r; i++)
-    A[i] = (int *)calloc(c, c*sizeof(int));
+    A[i] = (int *)calloc((unsigned int)c, c*sizeof(int));
 //========================================================================
 
 // print array 1D ========================================================
