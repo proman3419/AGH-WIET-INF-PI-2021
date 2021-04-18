@@ -1,4 +1,4 @@
-// calloc 1D array =======================================================
+// calloc array 1D =======================================================
 int* callocArray(int N)
 {
     int *A = (int *)calloc((unsigned int)N, sizeof(int));
@@ -7,7 +7,7 @@ int* callocArray(int N)
 }
 //========================================================================
 
-// malloc 1D array =======================================================
+// malloc array 1D =======================================================
 int* mallocArray(int N)
 {
     int *A = (int *)malloc((unsigned int)sizeof(int));
@@ -16,7 +16,7 @@ int* mallocArray(int N)
 }
 //========================================================================
 
-// calloc 2D array =======================================================
+// calloc array 2D =======================================================
 int** callocArray2D(int r, int c)
 {
     int **A = (int **)malloc((unsigned int)r*sizeof(int *));
@@ -27,7 +27,7 @@ int** callocArray2D(int r, int c)
 }
 //========================================================================
 
-// malloc 2D array =======================================================
+// malloc array 2D =======================================================
 int** mallocArray2D(int r, int c)
 {
     int **A = (int **)malloc((unsigned int)r*sizeof(int *));

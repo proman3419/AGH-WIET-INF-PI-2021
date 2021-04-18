@@ -37,7 +37,6 @@ void findSquares(int **T, int n, int k)
                     sum += T[i-l/2][j-l/2+1+m] + T[i-l/2+1+m][j+l/2] + T[i+l/2][j-l/2+m] + T[i-l/2+m][j-l/2];
                 }
 
-
                 if (sum == k)
                     squaresIds[q++] = i*n + j;
 
