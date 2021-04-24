@@ -1,14 +1,14 @@
 // calloc array 1D =======================================================
-int* callocArray(int N)
+int* callocArray(int n)
 {
-    int *A = (int *)calloc((unsigned int)N, sizeof(int));
+    int *A = (int *)calloc((unsigned int)n, sizeof(int));
 
     return A;
 }
 //========================================================================
 
 // malloc array 1D =======================================================
-int* mallocArray(int N)
+int* mallocArray(int n)
 {
     int *A = (int *)malloc((unsigned int)sizeof(int));
 
@@ -38,10 +38,28 @@ int** mallocArray2D(int r, int c)
 }
 //========================================================================
 
-// print array 1D ========================================================
-void printArray(int *A, int N)
+// read into array =======================================================
+void readIntoArray(int *A, int n)
 {
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i < n; i++)
+        scanf("%d", &A[i]);
+}
+//========================================================================
+
+// read into array 2D ====================================================
+void readIntoArray2D(int **A, int r, int c)
+{
+    int i, j;
+    for (i = 0; i < r; i++)
+        for (j = 0; j < c; j++)
+            scanf("%d", &A[i][j]);
+}
+//========================================================================
+
+// print array 1D ========================================================
+void printArray(int *A, int n)
+{
+    for (int i = 0; i < n; i++)
         printf("%d ", A[i]);
     printf("\n");
 }
