@@ -8,7 +8,7 @@ int** callocArray2D(int r, int c)
 {
     int **A = (int **)malloc((unsigned int)r*sizeof(int *));
     for (int i = 0; i < r; i++)
-        A[i] = (int *)calloc((unsigned int)c, (unsigned int)c*sizeof(int));
+        A[i] = (int *)calloc((unsigned int)c, sizeof(int));
 
     return A;
 }

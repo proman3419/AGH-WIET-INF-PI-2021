@@ -5,7 +5,7 @@ int** generateMatrixOfSums(int **F, unsigned int n, int r)
 {
     int **matrixOfSums = (int **)malloc(n*sizeof(int *));
     for (int i = 0; i < n; i++)
-        matrixOfSums[i] = (int *)calloc(n, n*sizeof(int));
+        matrixOfSums[i] = (int *)calloc(n, sizeof(int));
 
     int i1, j1, i2, j2;
     for (i1 = 0; i1 < n; i1++)
