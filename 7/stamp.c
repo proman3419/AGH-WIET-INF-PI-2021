@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 
 // malloc array 2D =======================================================
 int** mallocArray2D(int r, int c)
@@ -24,10 +25,10 @@ void readIntoArray2D(int **A, int r, int c)
 
 int findMaxCommonFieldsSum(int **T, int **P, int n, int k, int l)
 {
-    int i, j, q, r, sum, maxSum=0;
-    for (i = 0; i < n-k; i++)
+    int i, j, q, r, sum, maxSum=INT_MIN;
+    for (i = 0; i <= n-k; i++)
     {
-        for (j = 0; j < n-l; j++)
+        for (j = 0; j <= n-l; j++)
         {
             sum = 0;
             for (q = 0; q < k; q++)
