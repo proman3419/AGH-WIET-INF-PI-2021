@@ -36,15 +36,6 @@ int cmpFunc (const void *a, const void *b)
 }
 //========================================================================
 
-// print array 1D ========================================================
-void printArray(int *A, int n)
-{
-    for (int i = 0; i < n; i++)
-        printf("%d ", A[i]);
-    printf("\n");
-}
-//========================================================================
-
 // jezeli G wystepuje w T to i tak musimy je usunac.
 // zastepujemy to wystapienie zerem, zeby nie liczyc drugi raz w possiblePowsCnts
 int checkIfContainsG(int N, int G, int *T)
@@ -73,17 +64,36 @@ int findStartingIndex(int N, int G, int *T)
 int* generatePossiblePowsCnts(int maxPowExp, int N, int G, int *T)
 {
     int *possiblePowsCnts = callocArray(maxPowExp+1);
+    int *currPossiblePowsCnts = callocArray(maxPowExp+1);
     int i = findStartingIndex(N, G, T);
+    int j, curr, currG, flag;
 
     for (; i < N; i++)
     {
-        int curr = T[i];
-        for (int j = 0; j <= maxPowExp; j++)
+        curr = T[i];
+        currG = G;
+        flag = 1;
+        for (j = 0; j <= maxPowExp; j++)
         {
-            possiblePowsCnts[j] += curr%2;
+            if (currG%2 == 0 && curr%2 == 1)
+            {
+                flag = 0;
+                break;
+            }
+            currPossiblePowsCnts[j] += curr%2;
             curr /= 2;
+            currG /= 2;
+        }
+
+        for (j = 0; j <= maxPowExp; j++)
+        {
+            if (flag == 1)
+                possiblePowsCnts[j] += currPossiblePowsCnts[j];
+            currPossiblePowsCnts[j] = 0;
         }
     }
+
+    free(currPossiblePowsCnts);
 
     return possiblePowsCnts;
 }
@@ -111,8 +121,6 @@ int findMinElementsCntToRemove(int N, int G, int *T)
 
     int maxPowExp = (int)ceil(log2(G));
     int *possiblePowersCnts = generatePossiblePowsCnts(maxPowExp, N, G, T);
-
-    printArray(possiblePowersCnts, maxPowExp);
 
     solution += findSolution(maxPowExp, possiblePowersCnts, G);
 
