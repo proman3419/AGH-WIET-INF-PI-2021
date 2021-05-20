@@ -54,10 +54,11 @@ void generateString(char *s, char *sGen, int n, int o, int p)
 char* findSmallestLexicographicallyString(char *s, int n)
 {
     int primes[] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47};
-    char *sGen = mallocArrayChar(n);
-    char *sMin = mallocArrayChar(n);
-    copyString(s, sMin, n);
+    char *sGen = mallocArrayChar(n+1); // +1 dla '\0'
+    char *sMin = mallocArrayChar(n+1); // +1 dla '\0'
     char *temp;
+
+    copyString(s, sMin, n);
 
     for (int o = 0; o < n; o++)
     {
@@ -67,6 +68,7 @@ char* findSmallestLexicographicallyString(char *s, int n)
                 break;
 
             generateString(s, sGen, n, o, primes[p]);
+            
             if (compareLexicographicallyStrings(sMin, sGen, n) == -1)
             {
                 temp = sMin;
@@ -81,7 +83,7 @@ char* findSmallestLexicographicallyString(char *s, int n)
 
 int main()
 {
-    char *s = mallocArrayChar(MAX_STRING_LEN);
+    char *s = mallocArrayChar(MAX_STRING_LEN+1); // +1 dla '\0'
     scanf("%s", s);
 
     int n = getStringLen(s);
