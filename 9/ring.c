@@ -78,6 +78,8 @@ char* findSmallestLexicographicallyString(char *s, int n)
         }
     }
 
+    free(sGen);
+
     return sMin;
 }
 
@@ -89,6 +91,9 @@ int main()
     int n = getStringLen(s);
     char *sol = findSmallestLexicographicallyString(s, n);
     printf("%s", sol);
+
+    free(s);
+    free(sol);
 
     return 0;
 }
