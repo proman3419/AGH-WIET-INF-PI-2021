@@ -2,6 +2,15 @@
 #include <stdlib.h>
 #include <limits.h>
 
+// free array 2D =========================================================
+void freeArray2D(int **A, int n)
+{
+    for (int i = 0; i < n; i++)
+        free(A[i]);
+    free(A);
+}
+//========================================================================
+
 void printArray(int *A, int N)
 {
     for (int i = 0; i < N; i++)
@@ -72,7 +81,7 @@ int main()
 
     printArray(t2, mergedN);
 
-    free(t1);
+    freeArray2D(t1, N);
     free(t2);
 
     return 0;

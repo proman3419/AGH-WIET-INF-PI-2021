@@ -23,6 +23,15 @@ void readIntoArray2D(int **A, int r, int c)
 }
 //========================================================================
 
+// free array 2D =========================================================
+void freeArray2D(int **A, int n)
+{
+    for (int i = 0; i < n; i++)
+        free(A[i]);
+    free(A);
+}
+//========================================================================
+
 int findMaxCommonFieldsSum(int **T, int **P, int n, int k, int l)
 {
     int i, j, q, r, sum, maxSum=INT_MIN;
@@ -57,8 +66,8 @@ int main()
     int maxCommonFieldsSum = findMaxCommonFieldsSum(T, P, n, k, l);
     printf("%d", maxCommonFieldsSum);
 
-    free(T);
-    free(P);
+    freeArray2D(T, n);
+    freeArray2D(P, k);
 
     return 0;
 }

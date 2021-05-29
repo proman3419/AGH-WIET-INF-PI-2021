@@ -22,6 +22,15 @@ void readIntoArray(int *A, int n)
 }
 //========================================================================
 
+// free array 2D =========================================================
+void freeArray2D(int **A, int n)
+{
+    for (int i = 0; i < n; i++)
+        free(A[i]);
+    free(A);
+}
+//========================================================================
+
 int cntBlackSquares(int **A)
 {
     int cnt = 0, i, j;
@@ -69,7 +78,7 @@ int main()
     int blackCnt = cntBlackSquares(A);
     printf("%d", blackCnt);
 
-    free(A);
+    freeArray2D(A, N);
 
     return 0;
 }

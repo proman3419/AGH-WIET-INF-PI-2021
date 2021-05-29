@@ -1,6 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// free array 2D =========================================================
+void freeArray2D(int **A, int n)
+{
+    for (int i = 0; i < n; i++)
+        free(A[i]);
+    free(A);
+}
+//========================================================================
+
 void findSquares(int **T, int n, int k)
 {
     int i, j, l, m, sum, q=0;
@@ -68,7 +77,7 @@ int main()
 
     findSquares(T, n, k);
 
-    free(T);
+    freeArray2D(T, n);
 
     return 0;
 }

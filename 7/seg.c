@@ -22,6 +22,15 @@ void readIntoArray2D(int **A, int r, int c)
 }
 //========================================================================
 
+// free array 2D =========================================================
+void freeArray2D(int **A, int n)
+{
+    for (int i = 0; i < n; i++)
+        free(A[i]);
+    free(A);
+}
+//========================================================================
+
 int findMaxSum(int **T, int n, int k)
 {
     int sums[4];
@@ -72,7 +81,7 @@ int main()
     int maxSum = findMaxSum(T, n, k);
     printf("%d", maxSum);
 
-    free(T);
+    freeArray2D(T, n);
 
     return 0;
 }

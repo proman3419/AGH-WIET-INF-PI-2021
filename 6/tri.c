@@ -12,6 +12,15 @@ int** callocArray2D(int r, int c)
 }
 //========================================================================
 
+// free array 2D =========================================================
+void freeArray2D(int **A, int n)
+{
+    for (int i = 0; i < n; i++)
+        free(A[i]);
+    free(A);
+}
+//========================================================================
+
 int cntMonochromaticTriangles(int **A, int n)
 {
     int i, j, k, cnt=0;
@@ -43,7 +52,7 @@ int main()
     int cnt = cntMonochromaticTriangles(A, n);
     printf("%d", cnt);
 
-    free(A);
+    freeArray2D(A, n);
 
     return 0;
 }

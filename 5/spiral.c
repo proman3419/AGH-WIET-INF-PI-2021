@@ -1,6 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// free array 2D =========================================================
+void freeArray2D(int **A, int n)
+{
+    for (int i = 0; i < n; i++)
+        free(A[i]);
+    free(A);
+}
+//========================================================================
+
 int** generateSpiral(int n)
 {
     int **T = (int **)malloc((unsigned int)n*sizeof(int *));
@@ -63,7 +72,7 @@ int main()
     int** T = generateSpiral(n);
     printArray2D(T, n, n);
 
-    free(T);
+    freeArray2D(T, n);
 
     return 0;
 }

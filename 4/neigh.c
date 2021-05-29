@@ -1,6 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// free array 2D =========================================================
+void freeArray2D(int **A, int n)
+{
+    for (int i = 0; i < n; i++)
+        free(A[i]);
+    free(A);
+}
+//========================================================================
+
 int** generateMatrixOfSums(int **F, unsigned int n, int r)
 {
     int **matrixOfSums = (int **)malloc(n*sizeof(int *));
@@ -49,8 +58,8 @@ int main()
     int **W = generateMatrixOfSums(F, n, r);
     printArray2D(W, n, n);
 
-    free(F);
-    free(W);
+    freeArray2D(F, (int)n);
+    freeArray2D(W, (int)n);
 
     return 0;
 }

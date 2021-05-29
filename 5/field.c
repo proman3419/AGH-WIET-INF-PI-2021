@@ -32,6 +32,15 @@ int** mallocArray2D(int r, int c)
 }
 //========================================================================
 
+// free array 2D =========================================================
+void freeArray2D(int **A, int n)
+{
+    for (int i = 0; i < n; i++)
+        free(A[i]);
+    free(A);
+}
+//========================================================================
+
 int** generateDepthsArray(int **A, int n)
 {
     int **D = callocArray2D(n, n);
@@ -112,7 +121,7 @@ int findMaxField(int **A, int n)
     for (int i = 0; i < n; i++)
         maxField = findMaxSubField(D, n, stack, maxField, i);
 
-    free(D);
+    freeArray2D(D, n);
     free(stack);
 
     return maxField;
@@ -141,7 +150,7 @@ int main()
 
     printf("%d", maxField);
 
-    free(A);
+    freeArray2D(A, n);
 
     return 0;
 }
